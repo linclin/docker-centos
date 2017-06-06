@@ -1,0 +1,30 @@
+version: '3.2'
+services:
+  centos7:
+    image: centos7-sshd:latest   
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - /etc/resolv.conf:/etc/resolv.conf
+      - /etc/hosts:/etc/hosts
+      - /data/www:/data
+    domainname:  example.com
+    privileged: true
+    networks: 
+       centos7:
+         aliases:
+           - centos7
+    deploy:
+      mode: replicated
+      replicas: 2 
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 30s     
+networks: 
+  centos7: 
+    driver: overlay  
