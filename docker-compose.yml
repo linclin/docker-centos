@@ -3,8 +3,7 @@ services:
   centos7:
     image: centos7-sshd:latest   
     volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - /etc/localtime:/etc/localtime:ro 
       - /etc/resolv.conf:/etc/resolv.conf
       - /etc/hosts:/etc/hosts
       - /data/www:/data

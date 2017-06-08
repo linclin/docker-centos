@@ -1,5 +1,5 @@
 #sudo docker build -t centos7-systemd-sshd .
-#sudo docker run --name centos7 -h centos7 --privileged -d      --restart always      -v /etc/localtime:/etc/localtime:ro -v /sys/fs/cgroup:/sys/fs/cgroup:ro      centos7-systemd-sshd:latest
+#sudo docker run --name centos7 -h centos7 -e "container=docker" --privileged -d      --restart always      -v /etc/localtime:/etc/localtime:ro -v /sys/fs/cgroup:/sys/fs/cgroup:ro      centos7-systemd-sshd:latest
 From centos:latest
 MAINTAINER Linc "13579443@qq.com"
 RUN TERM=linux && export TERM

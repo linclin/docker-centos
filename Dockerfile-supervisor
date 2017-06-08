@@ -20,5 +20,6 @@ RUN  echo "root:b8b288f7f519f8bed62714d073fef49a" | chpasswd ; \
       sed -ri 's/#UseDNS yes/UseDNS no/g' /etc/ssh/sshd_config ; \
       sed -ri 's/GSSAPIAuthentication yes/GSSAPIAuthentication no/g' /etc/ssh/sshd_config ;   
 ADD container-files /  
+
 CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]  
 
