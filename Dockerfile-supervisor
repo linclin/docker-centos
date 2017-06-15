@@ -2,6 +2,9 @@
 #sudo docker run --name centos7   -d   centos7-sshd:latest
 From centos:latest
 MAINTAINER Linc "13579443@qq.com"
+ENV  TZ=Asia/Shanghai 
+ENV  LANG  en_US.UTF-8 
+ENV  LC_ALL  en_US.UTF-8
 RUN TERM=linux && export TERM
 USER root 
 #阿里云yum源
