@@ -8,7 +8,7 @@ ENV  LC_ALL  en_US.UTF-8
 RUN TERM=linux && export TERM
 USER root 
 #阿里云yum源
-RUN  mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup && curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo && curl -o /etc/yum.repos.d/epel-6.repo http://mirrors.aliyun.com/repo/epel-6.repo
+RUN  mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup && curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo && curl -o /etc/yum.repos.d/epel-7.repo http://mirrors.aliyun.com/repo/epel-7.repo
 #常用软件安装 && 清除YUM缓存目录(/var/cache/yum)下的软件包及旧的headers
 RUN  yum -y install  openssl openssl-devel lrzsz vim unzip net-tools iproute bind-utils  telnet   openssh-server openssh-clients crontabs supervisor  && yum --enablerepo=epel install -y --skip-broken python supervisor&& yum clean all && rm -rf /tmp/yum* 
 #sshd服务 
