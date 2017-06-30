@@ -34,6 +34,8 @@ RUN  echo "root:b8b288f7f519f8bed62714d073fef49a" | chpasswd ; \
       sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config ; \
       sed -ri 's/#UseDNS yes/UseDNS no/g' /etc/ssh/sshd_config ; \
       sed -ri 's/GSSAPIAuthentication yes/GSSAPIAuthentication no/g' /etc/ssh/sshd_config ; \
+      echo 'StrictHostKeyChecking no'>>/etc/ssh/sshd_config ;  \ 
+      echo 'UserKnownHostsFile /dev/null'>>/etc/ssh/sshd_config ;\
 	  systemctl enable sshd ;
     	
 #crontab
