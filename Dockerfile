@@ -19,6 +19,7 @@ RUN  echo "root:b8b288f7f519f8bed62714d073fef49a" | chpasswd ; \
       sed -ri 's/^PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config ; \
       sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config ; \
       sed -ri 's/#UseDNS yes/UseDNS no/g' /etc/ssh/sshd_config ; \
+      sed -ri 's/#ClientAliveInterval 0/ClientAliveInterval 600/g' /etc/ssh/sshd_config ; \
       sed -ri 's/GSSAPIAuthentication yes/GSSAPIAuthentication no/g' /etc/ssh/sshd_config ;   
 ADD container-files /  
 CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"] 
